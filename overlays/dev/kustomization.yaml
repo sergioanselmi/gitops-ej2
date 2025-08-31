@@ -1,0 +1,5 @@
+namePrefix: dev-  # Prefijo para los recursos en dev
+resources:
+  - ../../base  # Hereda de la base
+patchesStrategicMerge:
+  - patch.yaml  # Aplica modificaciones específicas para dev

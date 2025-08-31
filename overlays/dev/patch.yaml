@@ -1,0 +1,13 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-app  # Debe coincidir con el nombre original
+spec:
+  replicas: 2  # Dev usa 2 réplicas
+  template:
+    spec:
+      containers:
+        - name: node-app
+          env:
+            - name: NODE_ENV
+              value: development  # Variable de entorno específica para dev

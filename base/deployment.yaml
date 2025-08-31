@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-app  # Nombre base del deployment
+spec:
+  replicas: 1  # Réplicas por defecto, se sobreescriben en overlays
+  selector:
+    matchLabels:
+      app: node-app
+  template:
+    metadata:
+      labels:
+        app: node-app
+    spec:
+      containers:
+        - name: node-app
+          image: node:18  # Imagen base de Node.js
+          env:
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-credentials  # Referencia al Secret generado por External Secrets
+                  key: password
+          ports:
+            - containerPort: 3000  # Puerto expuesto por la app

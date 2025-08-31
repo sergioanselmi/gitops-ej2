@@ -1,0 +1,4 @@
+resources:
+  - deployment.yaml  # Incluye el deployment base
+  - service.yaml     # Incluye el service base
+  - external-secret.yaml  # Incluye la configuración de External Secrets
